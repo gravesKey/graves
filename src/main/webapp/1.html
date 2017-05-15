@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>幻灯片</title>
+<!-- <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<style type="text/css">
+.slide{position: relative; overflow: hidden;}
+.slide img{max-width: 100%; position: absolute; left: 0; top: 0;}
+.slide img:first-child{position: relative; visibility: visible;}
+</style>
+</head>
+<body>
+<div class="slide">
+ <img src="images/q.jpg" />
+ <img src="images/w.jpg" />
+ <img src="images/e.jpg" />
+ <img src="images/r.jpg" />
+</div>
+<script type="text/javascript">
+var size = $('.slide img').size();
+var _index = size;
+var timer = null;
+ $('.slide').append($('.slide img:eq(0)').clone());
+  timer = setInterval(function(){
+    $('.slide img').eq(_index).fadeOut(800);
+    _index == 1?_index=size:_index--;
+    $('.slide img').eq(_index).fadeIn(800);
+  },1000);
+</script>
+</body>
+</html>
